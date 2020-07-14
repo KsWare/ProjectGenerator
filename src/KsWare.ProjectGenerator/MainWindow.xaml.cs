@@ -131,8 +131,7 @@ namespace KsWare.ProjectGenerator {
 			_replacementsDictionary.Add(Variables.Company, CompanyTextBox.Text); 
 			_replacementsDictionary.Add(Variables.Year, DateTime.Today.Year.ToString());
 
-			for (int i = 0; i < 20; i++) { _guids.Add($"{{{i:D8}-0000-FFFF-BCDE-0123456789A}}", Guid.NewGuid().ToString("B").ToUpper()); }
-
+			for (int i = 0; i < 20; i++) { _guids.Add($"{{{i:D8}-0000-FFFF-BCDE-0123456789AB}}", Guid.NewGuid().ToString("B").ToUpper()); }
 		}
 
 		private int Git(string arguments) => Cmd($"git {arguments}");
