@@ -1,0 +1,2 @@
+# KsWare.ProjectGenerator
+KsWare.ProjectGenerator
