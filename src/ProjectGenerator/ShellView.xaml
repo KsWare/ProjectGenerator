@@ -1,0 +1,52 @@
+﻿<Window 
+	x:Class="KsWare.ProjectGenerator.ShellView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:KsWare.ProjectGenerator"
+	mc:Ignorable="d"
+	Title="KsWare Project Generator" Width="350" Height="350"
+	d:DataContext="{d:DesignInstance local:ShellViewModel, IsDesignTimeCreatable=False}"
+	>
+	<TabControl >
+		<TabItem Header="Default">
+		<StackPanel Margin="5">
+			<Label Content="Template"  Margin="0 5 0 0"/>
+			<ComboBox SelectedItem="{Binding SelectedTemplate}" ItemsSource="{Binding Templates}" IsEditable="False"/>
+			<Label Content="Destination"  Margin="0 5 0 0"/>
+			<TextBox  Text="{Binding DestinationRootPath}"/>
+		    <Label Content="Name" Margin="0 5 0 0"/>
+			<TextBox Text="{Binding ProjectName}"/>
+			<WrapPanel Margin="0 5 0 0">
+				<CheckBox IsChecked="{Binding CreateRepository}" Content="Create Repository" Margin="0 5 0 0"/>
+				<Label Content=" -Branch: " />
+				<TextBox Text="{Binding BranchName}" Width="120"  VerticalAlignment="Center"/>
+			</WrapPanel>
+			<WrapPanel Orientation="Horizontal" Margin="0 10 0 0">
+				<Button Content="Create" Command="{Binding CreateCommand}" Margin="2 0" Width="70"/>
+				<CheckBox Content="Open Folder" IsChecked="{Binding IsOpenFolderRequested}" VerticalAlignment="Center" Margin="5 0 0 0"/>
+				<CheckBox Content="Open Solution" IsChecked="{Binding IsOpenSolutionRequested}" VerticalAlignment="Center" Margin="5 0 0 0"/>
+			</WrapPanel>
+
+			<GroupBox Header="Template Tools" Margin="0 10 0 0">
+				<WrapPanel Orientation="Horizontal" Margin="0 5 0 0">
+					<Button Content="Copy" Command="{Binding CopyCommand}" Margin="2 0" Width="70"/>
+					<Button Content="Rename" Command="{Binding RenameCommand}" Margin="2 0" Width="70"/>
+					<Button Content="Convert..." Command="{Binding ConvertCommand}" Margin="2 0" Width="70" ToolTip="Converts (in-place) an existing project to a template." />
+				</WrapPanel>
+			</GroupBox>
+
+		</StackPanel>
+		</TabItem>
+		<TabItem Header="Settings">
+			<StackPanel>
+				<Label Content="Template-Root"  Margin="0 5 0 0"/>
+				<TextBox Text="{Binding TemplatesRootPath}" Height="22"/>
+				<Label Content="Company" Margin="0 5 0 0"/>
+				<TextBox Text="{Binding Company}"/>
+			</StackPanel>
+		</TabItem>
+	</TabControl>
+
+</Window>
